@@ -1,4 +1,4 @@
 class TodoResource < JSONAPI::Resource
-  attributes :title
+  attributes :user_id, :title
   has_many :items
 end

@@ -1,14 +1,14 @@
 require 'faker'
 
 # create fake data for users, posts, comments, todos, items
-oscar =  User.where(name: Faker::Name.name).create
+user =  User.where(name: Faker::Name.name, username: Faker::Pokemon.name, email: Faker::Internet.safe_email, password: Faker::Number.number(8)).create!
 
-2.times do
-  post = oscar.posts.create!(title: Faker::Hacker.adjective, body: Faker::Hacker.say_something_smart)
-  post.comments.create!(body: Faker::Hipster.sentence, user: oscar)
+5.times do
+  post = user.posts.create!(title: Faker::Hacker.adjective, body: Faker::Hacker.say_something_smart, user_id: user.id)
+  post.comments.create!(body: Faker::Hipster.sentence, user_id: user.id, post_id: post.id)
 end
 
-3.times do
-  todo = oscar.todos.create!(title: Faker::Space.galaxy, created_by: oscar)
+5.times do
+  todo = user.todos.create!(title: Faker::Space.galaxy, created_by: user)
   todo.items.create!(name: Faker::Space.planet, done: false)
 end
