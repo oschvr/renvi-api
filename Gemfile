@@ -14,8 +14,12 @@ gem 'puma', '~> 3.0'
 gem 'pg'
 # Rack Cors
 gem 'rack-cors'
-# Active Model Serializer
-gem 'active_model_serializers', '~> 0.10.0'
+# Active Model Serializer (Old JSON Api Resources)
+# gem 'active_model_serializers', '~> 0.10.0'
+# JSONAPI Specification Gem
+gem 'jsonapi-resources', github: 'cerebris/jsonapi-resources'
+# Plataformatec Devise for Users Mgmt
+gem 'devise'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
