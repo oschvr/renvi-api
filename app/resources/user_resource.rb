@@ -3,4 +3,3 @@ class UserResource < JSONAPI::Resource
   has_many :todos
   has_many :posts
 end
-

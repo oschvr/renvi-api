@@ -9,4 +9,17 @@ Rails.application.routes.draw do
   jsonapi_resources :todos do
     jsonapi_related_resources :items
   end
+
+  namespace :api, :path => "", :constraints => {:subdomain => "api"} do
+    namespace :v1 do
+        jsonapi_resources :users
+
+        jsonapi_resources :posts do
+          jsonapi_related_resources :comments
+        end
+        jsonapi_resources :todos do
+          jsonapi_related_resources :items
+        end
+    end
+  end
 end
